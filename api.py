@@ -14,8 +14,9 @@ class ImageApi(Resource):
         try:
             # base64 sent from request
             base_64_data = request.get_json()['image_64']
-            image_array = np.asarray(base_64_data)
-            image_array = image_array.flatten()
+            #image_array = decode64(base_64_data)
+            #image_array = np.asarray(base_64_data)
+            #image_array = image_array.flatten()
         except Exception as e:
             return jsonify({'response': False})
         return jsonify({'base64_img': base_64_data})
