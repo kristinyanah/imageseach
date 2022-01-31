@@ -1,4 +1,3 @@
-# using flask_restful
 import numpy as np
 from flask import Flask, jsonify, request
 from flask_restful import Resource, Api
@@ -13,7 +12,7 @@ class ImageApi(Resource):
     def post(self):
 
         try:
-            # This variable stores base64 data send from the request
+            # base64 sent from request
             base_64_data = request.get_json()['image_64']
             image_array = np.asarray(base_64_data)
             image_array = image_array.flatten()
@@ -25,6 +24,6 @@ class ImageApi(Resource):
 api.add_resource(ImageApi, '/image_api')
 
 
-# driver function
+# driver 
 if __name__ == '__main__':
     app.run(debug=True)
